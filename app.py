@@ -74,7 +74,7 @@ if selected == 'Heart Disease Prediction' :
         Age = st.text_input("Age of the Person")
     
     with col2 :
-        Sex = st.text_input("Gender(0:M,1:F)")
+        Sex = st.text_input("Gender of the person")
     
     with col3 :
         RestingBP = st.text_input("Resting Blood Pressure value")
@@ -94,6 +94,10 @@ if selected == 'Heart Disease Prediction' :
     heart_diagnosis = ''
 
     if st.button('heart test result'):
+        if Sex == 'Male':
+            Sex = 1
+        else:
+            Sex = 0
         user_input = [Age ,Sex ,  RestingBP , Cholesterol , FastingBS , MaxHR , OldPeak]
         user_as_np = np.asarray(user_input)
         input_data_reshaped = user_as_np.reshape(1,-1)
